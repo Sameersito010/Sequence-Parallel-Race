@@ -39,5 +39,32 @@ var ITDepartment = /** @class */ (function (_super) {
     }
     return ITDepartment;
 }(Department));
-var it = new ITDepartment("IT", 123);
+var it = new ITDepartment("IT", "123");
 cl(it);
+var itr = new ITDepartment("jhon", "s-123");
+cl(itr);
+var FinanceDepartment = /** @class */ (function (_super) {
+    __extends(FinanceDepartment, _super);
+    function FinanceDepartment() {
+        var _this = _super.call(this, "Finance", "D-456") || this;
+        _this.reportsArr = ["Oct Sal", "Nov Sal", "Dec Sal"];
+        _this.lastReport = _this.reportsArr[_this.reportsArr.length - 1];
+        return _this;
+    }
+    Object.defineProperty(FinanceDepartment.prototype, "accessLastReport", {
+        get: function () {
+            return this.lastReport;
+        },
+        set: function (updatedReport) {
+            this.lastReport = updatedReport;
+            this.reportsArr[this.reportsArr.length - 1] = updatedReport;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return FinanceDepartment;
+}(Department));
+var finance = new FinanceDepartment();
+cl(finance);
+cl(finance.accessLastReport);
+finance.accessLastReport = "Dec 2023 Salary Slip";

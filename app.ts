@@ -20,15 +20,17 @@ class Department{
 
 class ITDepartment extends Department{
     private emp:Array<string>=[]
-    constructor(empName:string, empId:number){
+    constructor( empName:string, empId:string){
         super(empName,empId)
     }
 }
 
 
-let it=new ITDepartment("IT",123)
+let it=new ITDepartment("IT","123")
 cl(it)
 
+let itr=new ITDepartment("jhon","s-123")
+cl(itr)
 
 class FinanceDepartment extends Department{
     private reportsArr:Array<string>=["Oct Sal","Nov Sal","Dec Sal"]
@@ -37,22 +39,22 @@ class FinanceDepartment extends Department{
         super("Finance","D-456")
         this.lastReport=this.reportsArr[this.reportsArr.length-1]
     }
-}
+
 
 get accessLastReport():string{
-return this.lastReport=updatedReport
+return this.lastReport
 }
 
 set accessLastReport(updatedReport:string){
     this.lastReport=updatedReport
-    this.reportArr[this.WebTransportDatagramDuplexStream.length-1]=updatedReport
+    this.reportsArr[this.reportsArr.length-1]=updatedReport
 }
-
+}
 
 
 let finance= new FinanceDepartment()
 cl(finance)
-cl(finance.accessLastReport())
+cl(finance.accessLastReport)
 finance.accessLastReport="Dec 2023 Salary Slip"
 
 
